@@ -1,0 +1,12 @@
+node_modules/
+.tooling/
+lib/
+.venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+__pycache__/
+*.py[cod]
+.env
+jupyter_server_config.py
+naavre_ai_assistant/labextension/
