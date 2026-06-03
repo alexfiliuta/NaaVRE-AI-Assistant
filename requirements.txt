@@ -1,0 +1,4 @@
+jupyter_server>=2.14,<3
+jupyterlab>=4.2,<5
+openai>=1.30,<2
+python-dotenv>=1.0,<2
