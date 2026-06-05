@@ -1,0 +1,38 @@
+Installing C:\Users\alex\Downloads\NaaVRE-extension\NaaVRE-extension\naavre-ai-assistant\naavre_ai_assistant\labextension -> naavre-ai-assistant
+Symlinking: C:\Users\alex\Downloads\NaaVRE-extension\NaaVRE-extension\naavre-ai-assistant\.venv\share\jupyter\labextensions\naavre-ai-assistant -> C:\Users\alex\Downloads\NaaVRE-extension\NaaVRE-extension\naavre-ai-assistant\naavre_ai_assistant\labextension
+Traceback (most recent call last):
+
+  File "C:\Users\alex\Downloads\NaaVRE-extension\NaaVRE-extension\naavre-ai-assistant\.venv\Lib\site-packages\jupyter_builder\federated_extensions.py", line 130, in develop_labextension
+    Path(full_dest).symlink_to(path)
+
+  File "C:\Users\alex\AppData\Local\Programs\Python\Python312\Lib\pathlib.py", line 1386, in symlink_to
+    os.symlink(target, self, target_is_directory)
+
+OSError: [WinError 1314] A required privilege is not held by the client: 'C:\\Users\\alex\\Downloads\\NaaVRE-extension\\NaaVRE-extension\\naavre-ai-assistant\\naavre_ai_assistant\\labextension' -> 'C:\\Users\\alex\\Downloads\\NaaVRE-extension\\NaaVRE-extension\\naavre-ai-assistant\\.venv\\share\\jupyter\\labextensions\\naavre-ai-assistant'
+
+
+The above exception was the direct cause of the following exception:
+
+
+Traceback (most recent call last):
+
+  File "C:\Users\alex\Downloads\NaaVRE-extension\NaaVRE-extension\naavre-ai-assistant\.venv\Lib\site-packages\jupyter_builder\debug_log_file_mixin.py", line 50, in debug_logging
+    yield
+
+  File "C:\Users\alex\Downloads\NaaVRE-extension\NaaVRE-extension\naavre-ai-assistant\.venv\Lib\site-packages\jupyter_builder\base_extension_app.py", line 53, in start
+    self.run_task()
+
+  File "C:\Users\alex\Downloads\NaaVRE-extension\NaaVRE-extension\naavre-ai-assistant\.venv\Lib\site-packages\jupyter_builder\extension_commands\develop.py", line 46, in run_task
+    develop_labextension_py(
+
+  File "C:\Users\alex\Downloads\NaaVRE-extension\NaaVRE-extension\naavre-ai-assistant\.venv\Lib\site-packages\jupyter_builder\federated_extensions.py", line 194, in develop_labextension_py
+    full_dest = develop_labextension(
+                ^^^^^^^^^^^^^^^^^^^^^
+
+  File "C:\Users\alex\Downloads\NaaVRE-extension\NaaVRE-extension\naavre-ai-assistant\.venv\Lib\site-packages\jupyter_builder\federated_extensions.py", line 138, in develop_labextension
+    raise OSError(msg) from e
+
+OSError: Symlinks can be activated on Windows 10 for Python version 3.8 or higher by activating the 'Developer Mode'. That may not be allowed by your administrators.
+See https://docs.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development
+
+Exiting application: lab
