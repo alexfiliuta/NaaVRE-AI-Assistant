@@ -1,0 +1,7 @@
+{
+  "ServerApp": {
+    "jpserver_extensions": {
+      "naavre_ai_assistant": true
+    }
+  }
+}
