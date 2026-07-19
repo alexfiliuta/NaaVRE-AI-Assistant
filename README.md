@@ -1,6 +1,6 @@
 # NaaVRE AI Assistant
 
-`naavre-ai-assistant` is a JupyterLab 4 extension for turning scientific intent into reviewable Python or R notebook cells. It supports NaaVRE draft-cell generation, opt-in execution, and an LLM-assisted repair loop while keeping API credentials on the Jupyter Server.
+`naavre-ai-assistant` is a JupyterLab 4 extension for turning scientific ideas into reviewable Python or R notebook cells. It supports NaaVRE draft-cell generation, opt-in execution, and an LLM-assisted repair loop.
 
 ## Features
 
@@ -9,9 +9,6 @@
 - Reads `inputs`, `outputs`, and `language` from NaaVRE cell metadata.
 - Inserts generated code immediately below the source cell for human review.
 - Optional execution in the active notebook kernel with up to three repair attempts.
-- Prompts generated code to use `/tmp/data/` for files shared between NaaVRE components.
-- Authenticated Jupyter Server endpoints with bounded request sizes and server-only credentials.
-- OpenAI-compatible backend, configurable for OpenAI or another compatible endpoint.
 
 ## Architecture
 
@@ -37,8 +34,6 @@ The server does not accept arbitrary kernel execution requests. Generated code r
 - JupyterLab 4.2 or newer
 - An OpenAI-compatible chat-completions API key
 
-For a clean personal Windows machine, use the download links and verification checklist in [PERSONAL_PC_SETUP.md](PERSONAL_PC_SETUP.md).
-
 On a new Windows machine, Node.js LTS and Python can be installed with:
 
 ```powershell
@@ -57,71 +52,12 @@ Run these commands from the repository root.
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
-python -m pip install --upgrade pip setuptools
-python -m pip install -e ".[test]"
 
 npm install
 npm run build
 python -m pip install .
 jupyter server extension enable --py naavre_ai_assistant --sys-prefix
 ```
-
-### Linux or macOS
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install --upgrade pip setuptools
-python -m pip install -e ".[test]"
-
-npm install
-npm run build
-python -m pip install .
-jupyter server extension enable --py naavre_ai_assistant --sys-prefix
-```
-
-The editable Python install provides the REST API during development. The post-build `pip install .` installs the frontend bundle into the virtual environment without requiring Windows Developer Mode or symlink permissions.
-
-## Configuration
-
-Set the API key in the same terminal that starts JupyterLab. Do not put it in notebook code or browser settings.
-
-### Windows PowerShell
-
-```powershell
-$env:OPENAI_API_KEY = "your-api-key"
-$env:OPENAI_MODEL = "gpt-4o-mini"
-# Optional for a compatible proxy or private endpoint:
-# $env:OPENAI_API_BASE = "https://api.example.org/v1"
-```
-
-### Linux or macOS
-
-```bash
-export OPENAI_API_KEY="your-api-key"
-export OPENAI_MODEL="gpt-4o-mini"
-# export OPENAI_API_BASE="https://api.example.org/v1"
-```
-
-The backend also loads a local `.env` file. Copy `.env.example` to `.env` for local development only; `.env` is excluded from Git.
-
-Supported variables:
-
-| Variable | Required | Default | Purpose |
-| --- | --- | --- | --- |
-| `OPENAI_API_KEY` | Yes | None | Server-side API credential |
-| `OPENAI_API_BASE` | No | OpenAI default | OpenAI-compatible base URL |
-| `OPENAI_MODEL` | No | `gpt-4o-mini` | Chat-completions model name |
-| `OPENAI_TIMEOUT_SECONDS` | No | `60` | Upstream request timeout |
-| `OPENAI_MAX_TOKENS` | No | `2000` | Maximum generated tokens |
-
-Start JupyterLab:
-
-```powershell
-jupyter lab
-```
-
-The **NaaVRE AI Assistant** opens in the left sidebar. The Jupyter server terminal should contain `NaaVRE AI Assistant server extension loaded`.
 
 ## Usage
 
@@ -210,42 +146,6 @@ jupyter labextension list
 ```
 
 Both commands should report `naavre_ai_assistant` or `naavre-ai-assistant` as enabled and valid.
-
-## End-to-End Smoke Test
-
-1. Start JupyterLab with a valid `OPENAI_API_KEY`.
-2. Create a Python notebook and run this setup cell:
-
-   ```python
-   import csv
-   from pathlib import Path
-
-   data_dir = Path("/tmp/data")
-   data_dir.mkdir(parents=True, exist_ok=True)
-   with (data_dir / "observations.csv").open("w", newline="") as handle:
-       writer = csv.DictWriter(handle, fieldnames=["temperature"])
-       writer.writeheader()
-       writer.writerows([{"temperature": 12.5}, {"temperature": 15.5}])
-   ```
-
-3. Add the Markdown draft from the previous section.
-4. Select **Generate, Execute, and Repair Draft Cell**.
-5. Verify that the generated cell completes and `/tmp/data/mean_temperature.csv` exists.
-6. Introduce a misspelled variable into the generated cell and run it once to confirm a normal kernel error is visible. Regenerate with self-healing to exercise the repair path.
-
-## Production Wheel
-
-Build the frontend before creating the Python artifact so the federated bundle is included in the wheel:
-
-```powershell
-npm install
-npm run build:all
-python -m pip install build
-python -m build
-python -m pip install dist\naavre_ai_assistant-0.1.0-py3-none-any.whl
-```
-
-For Linux, use the wheel filename under `dist/` with `/` path separators.
 
 ## REST API
 
