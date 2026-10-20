@@ -1,0 +1,7 @@
+# The integration image needs only a release wheel and its build recipe.
+**
+!naavre-ai-assistant/
+!naavre-ai-assistant/deploy/
+!naavre-ai-assistant/deploy/NaaVRE.Dockerfile
+!Releases/
+!Releases/naavre_ai_assistant-0.2.2-py3-none-any.whl

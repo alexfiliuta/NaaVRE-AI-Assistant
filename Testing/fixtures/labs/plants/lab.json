@@ -1,0 +1,10 @@
+{
+  "id": "plants",
+  "name": "Plant growth experiments",
+  "description": "Repeated plant measurements and treatment comparisons.",
+  "style": "Use concise summaries, distinguish observations from interpretations, and keep individual plant measurements visible.",
+  "frameworks": ["Python standard library", "Repeated measurements", "SVG"],
+  "skills": ["repeated-measurements"],
+  "allowed_tools": ["list_files", "inspect_dataset", "search_knowledge", "list_skills", "save_note"],
+  "enable_gbif": false
+}

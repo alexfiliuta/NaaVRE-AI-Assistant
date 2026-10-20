@@ -1,0 +1,10 @@
+{
+  "id": "environment",
+  "name": "Environmental monitoring",
+  "description": "Monitoring station observations and biodiversity context for LifeWatch-style workflows.",
+  "style": "Explain units, exclusions and uncertainty. Use one focused notebook cell per job and show intermediate results.",
+  "frameworks": ["Python standard library", "CSV", "SVG"],
+  "skills": ["csv-quality"],
+  "allowed_tools": ["list_files", "inspect_dataset", "search_knowledge", "list_skills", "gbif_species_lookup", "save_note"],
+  "enable_gbif": true
+}

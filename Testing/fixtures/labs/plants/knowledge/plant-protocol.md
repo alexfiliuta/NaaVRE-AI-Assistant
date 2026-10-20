@@ -1,0 +1,3 @@
+# Demonstration plant measurement protocol
+
+The demonstration plant dataset follows six plants across four weekly measurements. Three plants receive the control condition and three the fertilized condition. Columns are measurement_date, plant_id, treatment, height_cm, leaf_count, and biomass_g. Heights use centimetres and biomass uses grams. Treat repeated observations of one plant as dependent, not independent experimental replicates. Compute height gain from the first to the last chronological observation for each plant. Check duplicate plant-date combinations. Compare treatment averages descriptively. The small synthetic demonstration dataset does not establish the causal effectiveness of fertilizer in a population.

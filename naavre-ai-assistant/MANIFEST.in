@@ -1,0 +1,10 @@
+include package.json
+include install.json
+include requirements.txt tsconfig.json package-lock.json
+recursive-include src *.ts *.tsx
+recursive-include style *.css
+recursive-include jupyter-config *.json
+recursive-include naavre_ai_assistant/labextension *
+global-exclude *.pyc *.map
+recursive-include scripts *.py *.ps1 *.sh
+recursive-include deploy *.conf *.Dockerfile *.dockerignore

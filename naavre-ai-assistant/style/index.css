@@ -1,0 +1,476 @@
+.naavre-AIAssistant {
+  color: var(--jp-ui-font-color1);
+  background: var(--jp-layout-color1);
+  min-width: 280px;
+  height: 100%;
+  overflow: hidden;
+  font-family: var(--jp-ui-font-family);
+  font-size: var(--jp-ui-font-size1);
+}
+
+.naavre-AIAssistant-content {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 100%;
+  padding: 18px 14px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  line-height: 1.5;
+}
+
+.naavre-AIAssistant-content > * {
+  flex-shrink: 0;
+  min-width: 0;
+}
+
+.naavre-AIAssistant h2,
+.naavre-AIAssistant h3,
+.naavre-AIAssistant h4,
+.naavre-AIAssistant p {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.naavre-AIAssistant h2 {
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 5px 0 8px;
+}
+
+.naavre-AIAssistant h3 {
+  font-size: var(--jp-ui-font-size2);
+  font-weight: 600;
+}
+
+.naavre-AIAssistant h4 {
+  font-size: var(--jp-ui-font-size1);
+  font-weight: 600;
+}
+
+.naavre-AIAssistant-header p,
+.naavre-AIAssistant-muted,
+.naavre-AIAssistant-empty,
+.naavre-AIAssistant small {
+  color: var(--jp-ui-font-color2);
+}
+
+.naavre-AIAssistant small {
+  display: block;
+  font-size: var(--jp-ui-font-size0);
+  line-height: 1.5;
+}
+
+.naavre-AIAssistant-eyebrow {
+  color: var(--jp-ui-font-color2);
+  font-size: var(--jp-ui-font-size0);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.naavre-AIAssistant button,
+.naavre-AIAssistant select,
+.naavre-AIAssistant textarea,
+.naavre-AIAssistant input {
+  box-sizing: border-box;
+  font: inherit;
+  color: var(--jp-ui-font-color1);
+}
+
+.naavre-AIAssistant button {
+  border: 1px solid var(--jp-border-color1);
+  border-radius: 5px;
+  padding: 7px 10px;
+  min-height: 34px;
+  background: var(--jp-layout-color1);
+  cursor: pointer;
+  white-space: normal;
+  line-height: 1.4;
+}
+
+.naavre-AIAssistant button:hover:not(:disabled) {
+  background: var(--jp-layout-color2);
+}
+
+.naavre-AIAssistant button:disabled,
+.naavre-AIAssistant input:disabled,
+.naavre-AIAssistant select:disabled,
+.naavre-AIAssistant textarea:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.naavre-AIAssistant button:focus-visible,
+.naavre-AIAssistant summary:focus-visible,
+.naavre-AIAssistant input:focus-visible,
+.naavre-AIAssistant select:focus-visible,
+.naavre-AIAssistant textarea:focus-visible {
+  outline: 2px solid var(--jp-brand-color1);
+  outline-offset: 2px;
+}
+
+.naavre-AIAssistant .naavre-AIAssistant-primary {
+  color: var(--jp-ui-inverse-font-color1);
+  background: var(--jp-brand-color1);
+  border-color: var(--jp-brand-color1);
+  font-weight: 600;
+}
+
+.naavre-AIAssistant .naavre-AIAssistant-primary:hover:not(:disabled) {
+  background: var(--jp-brand-color0);
+}
+
+.naavre-AIAssistant .naavre-AIAssistant-secondary {
+  border-color: var(--jp-brand-color1);
+  color: var(--jp-brand-color1);
+  font-weight: 600;
+}
+
+.naavre-AIAssistant .naavre-AIAssistant-text-button {
+  font-size: var(--jp-ui-font-size0);
+  min-height: 28px;
+  padding: 3px 6px;
+}
+
+.naavre-AIAssistant-modes {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 7px;
+  background: var(--jp-layout-color2);
+}
+
+.naavre-AIAssistant-modes button {
+  flex: 1;
+  min-width: 0;
+  border-color: transparent;
+  background: transparent;
+}
+
+.naavre-AIAssistant-modes button[aria-pressed='true'] {
+  background: var(--jp-layout-color1);
+  border-color: var(--jp-border-color2);
+  color: var(--jp-brand-color1);
+  font-weight: 600;
+}
+
+.naavre-AIAssistant-card,
+.naavre-AIAssistant-analysis {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid var(--jp-border-color2);
+  border-radius: 7px;
+  background: var(--jp-layout-color1);
+}
+
+.naavre-AIAssistant-section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.naavre-AIAssistant-badge {
+  display: inline-block;
+  border: 1px solid var(--jp-border-color2);
+  background: var(--jp-layout-color2);
+  color: var(--jp-ui-font-color2);
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-size: var(--jp-ui-font-size0);
+  overflow-wrap: anywhere;
+}
+
+.naavre-AIAssistant .status-completed {
+  color: var(--jp-success-color1);
+  border-color: var(--jp-success-color1);
+}
+
+.naavre-AIAssistant .status-awaiting_approval,
+.naavre-AIAssistant .status-exhausted {
+  color: var(--jp-ui-font-color1);
+  border-color: var(--jp-warn-color1);
+}
+
+.naavre-AIAssistant .status-failed {
+  color: var(--jp-error-color1);
+  border-color: var(--jp-error-color1);
+}
+
+.naavre-AIAssistant-card > label,
+.naavre-AIAssistant-language legend,
+.naavre-AIAssistant-knowledge > label {
+  font-weight: 600;
+}
+
+.naavre-AIAssistant select,
+.naavre-AIAssistant textarea,
+.naavre-AIAssistant input[type='search'] {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid var(--jp-border-color1);
+  border-radius: 4px;
+  padding: 8px;
+  background: var(--jp-input-background);
+}
+
+.naavre-AIAssistant textarea {
+  min-height: 140px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.naavre-AIAssistant textarea::placeholder,
+.naavre-AIAssistant input::placeholder {
+  color: var(--jp-ui-font-color2);
+  opacity: 1;
+}
+
+.naavre-AIAssistant input[type='file'] {
+  width: 100%;
+  min-width: 0;
+  font-size: var(--jp-ui-font-size0);
+}
+
+.naavre-AIAssistant input[type='file']::file-selector-button {
+  color: var(--jp-ui-font-color1);
+  background: var(--jp-layout-color2);
+  border: 1px solid var(--jp-border-color1);
+  border-radius: 4px;
+  padding: 6px 8px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.naavre-AIAssistant input[type='checkbox'],
+.naavre-AIAssistant input[type='radio'] {
+  flex-shrink: 0;
+  margin: 3px 0 0;
+  accent-color: var(--jp-brand-color1);
+}
+
+.naavre-AIAssistant-language {
+  display: flex;
+  gap: 20px;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.naavre-AIAssistant-language legend {
+  padding: 0;
+  margin-bottom: 6px;
+}
+
+.naavre-AIAssistant-language label,
+.naavre-AIAssistant .naavre-AIAssistant-toggle {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-weight: 400;
+}
+
+.naavre-AIAssistant-lab-details {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 6px 12px;
+  margin: 0;
+}
+
+.naavre-AIAssistant-lab-details dt {
+  color: var(--jp-ui-font-color2);
+}
+
+.naavre-AIAssistant-lab-details dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.naavre-AIAssistant details > summary {
+  cursor: pointer;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.naavre-AIAssistant details[open] > summary {
+  margin-bottom: 10px;
+}
+
+.naavre-AIAssistant-knowledge {
+  border-top: 1px solid var(--jp-border-color2);
+  padding-top: 12px;
+}
+
+.naavre-AIAssistant-knowledge > label {
+  display: block;
+  margin: 12px 0 6px;
+}
+
+.naavre-AIAssistant-knowledge > small,
+.naavre-AIAssistant-knowledge > p {
+  margin-top: 6px;
+}
+
+.naavre-AIAssistant-knowledge-list {
+  margin-top: 12px;
+}
+
+.naavre-AIAssistant-knowledge-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 6px 0;
+  max-height: 180px;
+  overflow-y: auto;
+}
+
+.naavre-AIAssistant-knowledge-list li {
+  padding: 7px 0;
+  border-bottom: 1px solid var(--jp-border-color3);
+  overflow-wrap: anywhere;
+}
+
+.naavre-AIAssistant-citation {
+  overflow-wrap: anywhere;
+  font-family: var(--jp-code-font-family);
+}
+
+.naavre-AIAssistant-knowledge-excerpt {
+  white-space: pre-wrap;
+  margin: 6px 0;
+}
+
+.naavre-AIAssistant-step {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 14px;
+  border-top: 1px solid var(--jp-border-color2);
+}
+
+.naavre-AIAssistant-step h4 > span {
+  margin-left: 6px;
+  font-weight: 400;
+  font-size: var(--jp-ui-font-size0);
+}
+
+.naavre-AIAssistant-notice,
+.naavre-AIAssistant-approval {
+  border-left: 3px solid var(--jp-warn-color1);
+  background: var(--jp-layout-color2);
+  padding: 12px;
+  border-radius: 3px;
+}
+
+.naavre-AIAssistant-approval {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.naavre-AIAssistant-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.naavre-AIAssistant-timeline {
+  list-style: none;
+  padding: 0 0 0 12px;
+  margin: 0;
+  max-height: 380px;
+  overflow-y: auto;
+}
+
+.naavre-AIAssistant-timeline > li {
+  position: relative;
+  border-left: 2px solid var(--jp-border-color2);
+  padding: 0 0 18px 14px;
+  overflow-wrap: anywhere;
+}
+
+.naavre-AIAssistant-timeline > li::before {
+  content: '';
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--jp-brand-color1);
+  left: -4.5px;
+  top: 6px;
+}
+
+.naavre-AIAssistant-timeline > li > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: baseline;
+}
+
+.naavre-AIAssistant-event-kind {
+  color: var(--jp-ui-font-color2);
+  font-size: var(--jp-ui-font-size0);
+  text-transform: capitalize;
+}
+
+.naavre-AIAssistant pre {
+  box-sizing: border-box;
+  margin: 8px 0 0;
+  padding: 10px;
+  border: 1px solid var(--jp-border-color2);
+  border-radius: 4px;
+  background: var(--jp-layout-color0);
+  color: var(--jp-content-font-color1);
+  font-family: var(--jp-code-font-family);
+  font-size: var(--jp-code-font-size);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  max-height: 280px;
+  overflow: auto;
+}
+
+.naavre-AIAssistant code {
+  font-family: var(--jp-code-font-family);
+  font-size: var(--jp-ui-font-size0);
+  overflow-wrap: anywhere;
+}
+
+.naavre-AIAssistant-run-summary,
+.naavre-AIAssistant-run-prompt,
+.naavre-AIAssistant-timeline p {
+  white-space: pre-wrap;
+}
+
+.naavre-AIAssistant-analysis-group {
+  margin-top: 12px;
+}
+
+.naavre-AIAssistant-analysis-group h4 {
+  margin-bottom: 6px;
+}
+
+.naavre-AIAssistant-analysis ul,
+.naavre-AIAssistant-analysis ol {
+  margin: 4px 0;
+  padding-left: 20px;
+}
+
+.naavre-AIAssistant-status,
+.naavre-AIAssistant-health {
+  color: var(--jp-ui-font-color2);
+  overflow-wrap: anywhere;
+  font-size: var(--jp-ui-font-size0);
+}
+
+.naavre-AIAssistant-status {
+  border-top: 1px solid var(--jp-border-color2);
+  padding-top: 12px;
+}
+
+.naavre-AIAssistant .is-error {
+  color: var(--jp-error-color1);
+}

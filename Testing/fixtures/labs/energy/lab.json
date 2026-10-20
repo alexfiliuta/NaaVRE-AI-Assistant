@@ -1,0 +1,10 @@
+{
+  "id": "energy",
+  "name": "Building electricity use (synthetic demo)",
+  "description": "A deliberately synthetic, two-building daily electricity dataset for a first live research-coworker demonstration. Not NaaVRE or real sensor data.",
+  "style": "Explain units and missing readings in plain language. Show evidence and descriptive comparisons, preserve flagged readings, and avoid claims about causes or efficiency.",
+  "frameworks": ["Python standard library", "CSV", "SVG"],
+  "skills": ["daily-energy-comparison"],
+  "allowed_tools": ["list_files", "inspect_dataset", "search_knowledge", "list_skills"],
+  "enable_gbif": false
+}

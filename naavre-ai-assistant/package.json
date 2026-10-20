@@ -1,0 +1,86 @@
+{
+  "name": "naavre-ai-assistant",
+  "version": "0.2.2",
+  "description": "JupyterLab research coworker with lab-scoped MCP tools and self-hosted Ollama",
+  "keywords": [
+    "jupyter",
+    "jupyterlab-extension",
+    "jupyterlab-extension-v4",
+    "naavre",
+    "scientific-workflows"
+  ],
+  "license": "BSD-3-Clause",
+  "author": "Alexandru Filiuta",
+  "files": [
+    "lib/**/*.{js,js.map,d.ts}",
+    "style/**/*.{css,png,svg}"
+  ],
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "style": "style/index.css",
+  "scripts": {
+    "build": "npm run build:lib && npm run build:labextension:dev",
+    "build:all": "npm run build:lib && npm run build:labextension",
+    "build:labextension": "python scripts/build_frontend.py",
+    "build:labextension:dev": "python scripts/build_frontend.py --development",
+    "build:lib": "tsc",
+    "clean": "rimraf lib naavre_ai_assistant/labextension",
+    "lint": "tsc --noEmit",
+    "watch": "tsc --watch"
+  },
+  "dependencies": {
+    "@jupyterlab/application": "^4.2.0",
+    "@jupyterlab/apputils": "^4.2.0",
+    "@jupyterlab/cells": "^4.2.0",
+    "@jupyterlab/notebook": "^4.2.0",
+    "@jupyterlab/services": "^7.2.0",
+    "@jupyterlab/ui-components": "^4.2.0",
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "@jupyterlab/builder": "^4.2.0",
+    "@types/react": "^18.2.79",
+    "rimraf": "^5.0.7",
+    "typescript": "~5.4.5"
+  },
+  "jupyterlab": {
+    "extension": true,
+    "outputDir": "naavre_ai_assistant/labextension",
+    "sharedPackages": {
+      "@jupyterlab/application": {
+        "bundled": false,
+        "singleton": true,
+        "requiredVersion": "^4.2.0"
+      },
+      "@jupyterlab/apputils": {
+        "bundled": false,
+        "singleton": true,
+        "requiredVersion": "^4.2.0"
+      },
+      "@jupyterlab/cells": {
+        "bundled": false,
+        "singleton": true,
+        "requiredVersion": "^4.2.0"
+      },
+      "@jupyterlab/notebook": {
+        "bundled": false,
+        "singleton": true,
+        "requiredVersion": "^4.2.0"
+      },
+      "@jupyterlab/services": {
+        "bundled": false,
+        "singleton": true,
+        "requiredVersion": "^7.2.0"
+      },
+      "@jupyterlab/ui-components": {
+        "bundled": false,
+        "singleton": true,
+        "requiredVersion": "^4.2.0"
+      },
+      "react": {
+        "singleton": true,
+        "requiredVersion": "^18.2.0"
+      }
+    }
+  }
+}
